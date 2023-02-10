@@ -1,0 +1,151 @@
+// @import "./colors";
+// @import "./large";
+
+@use "./colors" as c;
+
+*,
+::after,
+::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.8rem;
+	font-family: "Montserrat", sans-serif;
+	background-color: c.$blue-main-bg;
+	font-family: "Outfit", sans-serif;
+	color: c.$soft-blue;
+}
+.container {
+	//height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card {
+	border-radius: 14px;
+	width: 320px;
+	background-color: c.$blue-card-bg;
+	padding: 1.2em;
+	font-size: 1.5rem;
+	font-weight: 300;
+	margin: 3em;
+	&__img {
+		position: relative;
+		overflow: hidden;
+		border-radius: 14px;
+		height: 279px;
+		&-content {
+			//display: none;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 14px;
+		}
+		&-hover {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			background-color: c.$soft-blue-hover;
+			z-index: 10;
+			opacity: 0;
+			transition: opacity 0.3s;
+			cursor: pointer;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		&-view-icon {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			z-index: 10;
+		}
+	}
+
+	&__title {
+		color: c.$cyan;
+		font-size: 2rem;
+		padding-top: 1em;
+		padding-bottom: 0.6em;
+		font-weight: 600;
+		&-link {
+			cursor: pointer;
+		}
+	}
+	&__description {
+		padding-bottom: 1.2em;
+	}
+	&__details {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 1.2em;
+	}
+	&__exchange-rate {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+
+		&-img {
+			margin-right: 0.5em;
+		}
+		&-text {
+			color: c.$cyan;
+		}
+	}
+	&__expire-time {
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		&-img {
+			margin-right: 0.5em;
+		}
+	}
+	&__separator {
+		width: 100%;
+		height: 1px;
+		background-color: c.$blue-line;
+		margin-bottom: 1em;
+	}
+	&__creator {
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		&-img {
+			object-fit: cover;
+			width: 30px;
+			height: 30px;
+			border: 1px solid white;
+			border-radius: 50%;
+			margin-right: 1em;
+		}
+		&-text {
+			font-size: 1.6rem;
+		}
+		&-author-name {
+			color: c.$cyan;
+			cursor: pointer;
+		}
+	}
+}
+
+.footer {
+	&__text {
+		font-size: 1.4rem;
+		text-align: center;
+	}
+	&__link {
+		text-decoration: none;
+		color: c.$cyan;
+	}
+}
